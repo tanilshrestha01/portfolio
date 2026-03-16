@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import './styles/animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --page-bg: radial-gradient(circle at 15% 5%, #0f3f4a 0%, rgba(10, 18, 32, 0) 45%),
+    radial-gradient(circle at 85% 10%, #441f35 0%, rgba(10, 18, 32, 0) 40%),
+    #05080f;
+  --text-primary: #f8fafc;
+  --text-secondary: #bac6d8;
+  --glass: rgba(8, 16, 32, 0.62);
+  --glass-border: rgba(148, 163, 184, 0.2);
+  --shadow-glow: 0 0 0 1px rgba(34, 211, 238, 0.15), 0 30px 80px rgba(4, 10, 20, 0.6);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --page-bg: radial-gradient(circle at 20% 0%, #bbf7d0 0%, rgba(236, 253, 245, 0) 35%),
+    radial-gradient(circle at 82% 10%, #bae6fd 0%, rgba(239, 246, 255, 0) 35%),
+    #f6fbff;
+  --text-primary: #07131f;
+  --text-secondary: #334155;
+  --glass: rgba(255, 255, 255, 0.66);
+  --glass-border: rgba(100, 116, 139, 0.22);
+  --shadow-glow: 0 0 0 1px rgba(34, 211, 238, 0.14), 0 25px 70px rgba(147, 197, 253, 0.26);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: 'General Sans', 'Segoe UI', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', 'General Sans', sans-serif;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+.section-wrap {
+  @apply relative px-[4%] py-20 md:py-24;
+}
+
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glow);
+  backdrop-filter: blur(12px);
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.13) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.18;
+}
+
+.action-btn {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm text-slate-100 transition;
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.22);
+}
+
+.action-btn-primary {
+  @apply border-cyan-300/35 bg-cyan-400/20 text-cyan-100;
+}
+
+[data-theme='light'] .action-btn {
+  @apply border-slate-300/55 bg-white/80 text-slate-700;
+}
+
+[data-theme='light'] .action-btn-primary {
+  @apply border-cyan-500/35 bg-cyan-300/30 text-slate-800;
+}
+
+.input-wrap {
+  @apply flex flex-col gap-1 text-sm text-slate-300;
+}
+
+.input-wrap input,
+.input-wrap textarea {
+  @apply rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-sm text-white outline-none transition;
+}
+
+.input-wrap input:focus,
+.input-wrap textarea:focus {
+  @apply border-cyan-300/55 shadow-[0_0_0_3px_rgba(34,211,238,0.15)];
+}
+
+[data-theme='light'] .input-wrap {
+  @apply text-slate-600;
+}
+
+[data-theme='light'] .input-wrap input,
+[data-theme='light'] .input-wrap textarea {
+  @apply border-slate-300/65 bg-white/70 text-slate-800;
+}
+
+.social-btn {
+  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-slate-100 transition hover:-translate-y-0.5 hover:text-cyan-300;
+}
+
+[data-theme='light'] .social-btn {
+  @apply border-slate-300/55 bg-white/80 text-slate-700 hover:text-cyan-600;
+}
+
+[data-theme='light'] .text-white {
+  color: #0f172a;
+}
+
+[data-theme='light'] .text-slate-300,
+[data-theme='light'] .text-slate-200,
+[data-theme='light'] .text-slate-100 {
+  color: #334155;
+}
